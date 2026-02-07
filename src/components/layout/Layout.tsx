@@ -6,12 +6,14 @@ import {
   Home,
   Info,
   HelpCircle,
+  PlusCircle,
 } from "lucide-react";
 
 const navItems = [
   { to: "/", label: "Home", icon: Home },
   { to: "/locations", label: "Locations", icon: Building2 },
   { to: "/issues", label: "Issues", icon: ClipboardList },
+  { to: "/report", label: "Report", icon: PlusCircle },
   { to: "/about", label: "About", icon: Info },
   { to: "/contact", label: "Contact", icon: HelpCircle },
 ];
@@ -37,10 +39,9 @@ function Layout() {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                    isActive
-                      ? "bg-accent text-accent-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  `flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                   }`
                 }
                 end={item.to === "/"}

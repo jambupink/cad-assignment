@@ -8,6 +8,7 @@ import Layout from "./components/layout/Layout.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import LocationsPage from "./pages/LocationsPage.tsx";
 import IssuesListPage from "./pages/IssuesListPage.tsx";
+import ReportIssuePage from "./pages/ReportIssuePage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
 
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<HomePage />} />
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/issues" element={<IssuesListPage />} />
+          <Route path="/report" element={<ReportIssuePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
