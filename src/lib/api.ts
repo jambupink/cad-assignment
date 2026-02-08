@@ -11,7 +11,26 @@ export interface Issue {
   imageKey: string;
   imageUrl: string;
   reportedAt: string;
+  detectedLabels?: DetectedLabel[];
+  detectedText?: DetectedText[];
 }
+
+export interface DetectedLabel {
+  name: string;
+  confidence: number;
+}
+
+export interface DetectedText {
+  text: string;
+  confidence: number;
+}
+
+export interface AnalysisResult {
+  labels: DetectedLabel[];
+  detectedText: DetectedText[];
+  suggestedCategory: string | null;
+}
+
 
 export async function getUploadUrl(
   fileName: string,
@@ -44,6 +63,8 @@ export async function createIssue(data: {
   category: string;
   location: string;
   imageKey: string;
+  detectedLabels?: DetectedLabel[];
+  detectedText?: DetectedText[];
 }): Promise<Issue> {
   const res = await fetch(`${API_BASE}/issues`, {
     method: "POST",
@@ -67,5 +88,42 @@ export async function fetchIssues(
 
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch issues");
+  return res.json();
+}
+
+export async function analyzeImage(
+  imageKey: string
+): Promise<AnalysisResult> {
+  const res = await fetch(`${API_BASE}/analyze-image`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ imageKey }),
+  });
+  if (!res.ok) throw new Error("Failed to analyze image");
+  return res.json();
+}
+
+export async function subscribeNotifications(
+  email: string
+): Promise<{ message: string }> {
+  const res = await fetch(`${API_BASE}/subscribe`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+  if (!res.ok) throw new Error("Failed to subscribe");
+  return res.json();
+}
+
+export async function updateIssueStatus(
+  issueId: string,
+  status: string
+): Promise<Issue> {
+  const res = await fetch(`${API_BASE}/issues/${issueId}/status`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ issueId, status }),
+  });
+  if (!res.ok) throw new Error("Failed to update issue status");
   return res.json();
 }
