@@ -1,4 +1,3 @@
-// src/pages/IssuesListPage.tsx
 import {
   Card,
   CardContent,

@@ -1,4 +1,3 @@
-// src/lib/api.ts
 const API_BASE =
   "https://pbxye9l79b.execute-api.ap-southeast-1.amazonaws.com/prod";
 
