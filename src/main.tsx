@@ -11,6 +11,7 @@ import IssuesListPage from "./pages/IssuesListPage.tsx";
 import ReportIssuePage from "./pages/ReportIssuePage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
 import ContactPage from "./pages/ContactPage.tsx";
+import NotificationsPage from "./pages/NotificationsPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,6 +22,10 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/locations" element={<LocationsPage />} />
           <Route path="/issues" element={<IssuesListPage />} />
           <Route path="/report" element={<ReportIssuePage />} />
+          <Route
+            path="/notifications"
+            element={<NotificationsPage />}
+          />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Route>
