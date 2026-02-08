@@ -1,4 +1,3 @@
-// src/pages/LocationsPage.tsx
 import {
   Card,
   CardDescription,
