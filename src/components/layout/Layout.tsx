@@ -7,6 +7,7 @@ import {
   Info,
   HelpCircle,
   PlusCircle,
+  Bell,
 } from "lucide-react";
 
 const navItems = [
@@ -14,6 +15,7 @@ const navItems = [
   { to: "/locations", label: "Locations", icon: Building2 },
   { to: "/issues", label: "Issues", icon: ClipboardList },
   { to: "/report", label: "Report", icon: PlusCircle },
+  { to: "/notifications", label: "Alerts", icon: Bell },
   { to: "/about", label: "About", icon: Info },
   { to: "/contact", label: "Contact", icon: HelpCircle },
 ];
